@@ -3,7 +3,7 @@
   : ["api/headlines", "./headlines.json", "http://127.0.0.1:8000/api/headlines"];
 
 const FIXED_SITE_COUNT = 11;
-const FIXED_HEADLINES_PER_SITE = 1;
+const FIXED_HEADLINES_PER_SITE = 8;
 
 const statusEl = document.getElementById("status");
 const updatedAtEl = document.getElementById("updatedAt");
@@ -163,3 +163,4 @@ refreshBtn.addEventListener("click", renderNews);
 
 renderNews();
 setInterval(renderNews, 5 * 60 * 1000);
+
