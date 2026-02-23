@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-23T11:56:43.798853+00:00",
+  "fetched_at": "2026-02-23T12:16:12.012505+00:00",
   "source_count": 11,
   "limit": 8,
   "translation": "disabled",
@@ -55,10 +55,10 @@
           "image_url": ""
         },
         {
-          "title": "北朝鮮 朝鮮労働党の党大会 キム総書記を全会一致で再選",
+          "title": "オランダ 最年少首相 38歳イェッテン氏が就任 3党連立少数与党",
           "translated_title": "",
-          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015059021000.html",
-          "published_at": "Mon, 23 Feb 2026 18:26:24 +0900",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015059151000.html",
+          "published_at": "Mon, 23 Feb 2026 21:00:42 +0900",
           "image_url": ""
         }
       ],
@@ -104,7 +104,7 @@
           "title": "Briton among 19 killed in Nepal bus crash",
           "translated_title": "",
           "link": "https://www.bbc.com/news/articles/c39wz97y90no?at_medium=RSS&at_campaign=rss",
-          "published_at": "Mon, 23 Feb 2026 11:16:56 GMT",
+          "published_at": "Mon, 23 Feb 2026 12:00:23 GMT",
           "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c184/live/603c8d80-10a7-11f1-b048-c9424b2cf5fd.jpg"
         },
         {
@@ -133,23 +133,137 @@
       "from_cache": false
     },
     {
-      "id": "reuters_world",
-      "name": "Reuters World",
-      "site_url": "https://www.reuters.com/world/",
-      "feed_url": "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
-      "terms_url": "https://www.reuters.com/info-pages/terms-of-use/",
-      "headlines": [],
-      "error": "HTTP Error 404: Not Found",
+      "id": "cbs_world",
+      "name": "CBS World",
+      "site_url": "https://www.cbsnews.com/world/",
+      "feed_url": "https://www.cbsnews.com/latest/rss/world",
+      "terms_url": "https://www.paramount.com/legal/us/en/cbsi/terms-of-use",
+      "headlines": [
+        {
+          "title": "After leader killed, what does future hold for powerful Jalisco cartel?",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/el-mencho-killed-jalisco-cartel-future-mexico/",
+          "published_at": "Mon, 23 Feb 2026 07:05:13 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Violence erupts after Mexican cartel leader \"El Mencho\" killed in federal operation",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/violence-mexico-jalisco-new-generation-cartel-killed-military-puerto-vallarta/",
+          "published_at": "Mon, 23 Feb 2026 06:12:47 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "France to summon U.S. ambassador over comments on activist's death",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/france-summon-us-ambassador-charles-kushner-state-departments-comment-quentin-deranque/",
+          "published_at": "Mon, 23 Feb 2026 00:00:01 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "See the Olympic medal count for the 2026 Winter Games",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/olympic-medal-count-2026-winter-games/",
+          "published_at": "Sun, 22 Feb 2026 20:27:28 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Which countries and athletes have the most Olympic medals of all time?",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/most-olympic-medals-all-time-2026/",
+          "published_at": "Sun, 22 Feb 2026 20:27:02 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Winter Olympics closing ceremony celebrates athletes and Italian art in Verona",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/2026-olympics-closing-ceremony-milano-cortina/",
+          "published_at": "Sun, 22 Feb 2026 20:26:27 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Milano Cortina Winter Olympics come to an end",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/video/milano-cortina-winter-olympics-come-to-an-end/",
+          "published_at": "Sun, 22 Feb 2026 20:23:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "U.S. beats Canada in thrilling hockey finals to win Olympic gold",
+          "translated_title": "",
+          "link": "https://www.cbsnews.com/news/us-hockey-canada-milano-cortina-winter-olympics-gold-medal/",
+          "published_at": "Sun, 22 Feb 2026 20:18:00 -0500",
+          "image_url": ""
+        }
+      ],
+      "error": "",
       "from_cache": false
     },
     {
       "id": "cnn_world",
       "name": "CNN World",
       "site_url": "https://edition.cnn.com/world",
-      "feed_url": "https://rss.cnn.com/rss/edition_world.rss",
+      "feed_url": "http://rss.cnn.com/rss/edition_world.rss",
       "terms_url": "https://www.cnn.com/terms",
-      "headlines": [],
-      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>",
+      "headlines": [
+        {
+          "title": "Markets digest bank earnings after recent turmoil",
+          "translated_title": "",
+          "link": "https://www.cnn.com/business/live-news/stock-market-bank-earnings/index.html",
+          "published_at": "Fri, 14 Apr 2023 20:00:28 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/230328155427-01-nyse-0328-super-169.jpg"
+        },
+        {
+          "title": "Still haven't filed your taxes? Here's what you need to know",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2023/04/13/success/tax-filing-tips/index.html",
+          "published_at": "Fri, 14 Apr 2023 20:07:40 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/230411161107-stressed-man-stock-super-169.jpeg"
+        },
+        {
+          "title": "Retail spending fell in March as consumers pull back",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2023/04/14/economy/march-retail-sales/index.html",
+          "published_at": "Fri, 14 Apr 2023 14:29:52 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/230412211243-grocery-store-california-230412-super-169.jpg"
+        },
+        {
+          "title": "Analysis: Fox News is about to enter the true No Spin Zone",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2023/04/14/media/fox-news-dominion-hnk-intl/index.html",
+          "published_at": "Fri, 14 Apr 2023 06:41:00 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/230413121210-01-dominion-courtroom-super-169.jpg"
+        },
+        {
+          "title": "Silicon Valley Bank collapse renews calls to address disparities impacting entrepreneurs of color",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2023/04/13/business/silicon-valley-bank-entrepreneurs-of-color-reaj/index.html",
+          "published_at": "Thu, 13 Apr 2023 21:13:04 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/230410105412-08-silicon-valley-bank-svb-0310-super-169.jpg"
+        },
+        {
+          "title": "Not only is Lake Powell's water level plummeting because of drought, its total capacity is shrinking, too",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2022/03/21/us/lake-powell-capacity-shrinking-drought-climate/index.html",
+          "published_at": "Mon, 21 Mar 2022 19:54:24 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/220321144911-lake-powell-utah-062421-file-super-169.jpg"
+        },
+        {
+          "title": "These were the best and worst places for air quality in 2021, new report shows",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2022/03/22/world/air-pollution-2021-iqair-report-climate/index.html",
+          "published_at": "Tue, 22 Mar 2022 16:43:47 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/220321134236-01-india-pollution-2021-super-169.jpg"
+        },
+        {
+          "title": "Big-box stores could help slash emissions and save millions by putting solar panels on roofs. Why aren't more of them doing it?",
+          "translated_title": "",
+          "link": "https://www.cnn.com/2022/03/20/us/solar-power-on-big-box-store-rooftops-climate/index.html",
+          "published_at": "Sun, 20 Mar 2022 07:01:50 GMT",
+          "image_url": "https://cdn.cnn.com/cnnnext/dam/assets/220309154435-02-big-box-rooftop-solar-climate-super-169.jpg"
+        }
+      ],
+      "error": "",
       "from_cache": false
     },
     {
@@ -294,6 +408,27 @@
       "terms_url": "https://www.aljazeera.com/terms-and-conditions",
       "headlines": [
         {
+          "title": "Iran says ready for talks but will defend itself against US aggression",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/iran-says-ready-for-talks-but-will-defend-itself-against-us-aggression?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 11:40:38 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Human rights outmuscled by ‘rule of force’ globally, UN chief warns",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/human-rights-outmuscled-by-rule-of-force-globally-un-chief-warns?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 11:33:35 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Who are Mexico’s top cartel bosses killed or arrested in recent years?",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/who-are-mexicos-top-cartel-bosses-killed-or-arrested-in-recent-years?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 11:22:26 +0000",
+          "image_url": ""
+        },
+        {
           "title": "Gaza child dies after Israel blocks medical evacuation",
           "translated_title": "",
           "link": "https://www.aljazeera.com/video/newsfeed/2026/2/23/gaza-child-dies-after-israel-blocks-medical-evacuation?traffic_source=rss",
@@ -327,27 +462,6 @@
           "link": "https://www.aljazeera.com/news/2026/2/23/four-killed-in-russian-attacks-in-ukraine-ahead-of-eu-ministers-meeting?traffic_source=rss",
           "published_at": "Mon, 23 Feb 2026 10:19:13 +0000",
           "image_url": ""
-        },
-        {
-          "title": "Winter Olympics 2026 closes after setting ‘a new standard for future’",
-          "translated_title": "",
-          "link": "https://www.aljazeera.com/gallery/2026/2/23/winter-olympics-2026-closes-after-setting-a-new-standard-for-future?traffic_source=rss",
-          "published_at": "Mon, 23 Feb 2026 09:40:23 +0000",
-          "image_url": ""
-        },
-        {
-          "title": "Football matches postponed in Mexico after drug kingpin El Mencho killed",
-          "translated_title": "",
-          "link": "https://www.aljazeera.com/sports/2026/2/23/football-matches-postponed-in-mexico-after-drug-cartel-leader-killed?traffic_source=rss",
-          "published_at": "Mon, 23 Feb 2026 09:07:04 +0000",
-          "image_url": ""
-        },
-        {
-          "title": "Video: Armed man killed after breaching perimeter of Trump residence",
-          "translated_title": "",
-          "link": "https://www.aljazeera.com/video/newsfeed/2026/2/23/video-armed-man-killed-after-breaching-perimeter-of-trump-residence?traffic_source=rss",
-          "published_at": "Mon, 23 Feb 2026 08:52:07 +0000",
-          "image_url": ""
         }
       ],
       "error": "",
@@ -359,8 +473,65 @@
       "site_url": "https://news.un.org/",
       "feed_url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "terms_url": "https://www.un.org/en/about-us/terms-of-use",
-      "headlines": [],
-      "error": "not well-formed (invalid token): line 1, column 0",
+      "headlines": [
+        {
+          "title": "Guns, fashionable clothes and death threats: How gangs in Haiti ensnare children",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167004",
+          "published_at": "Sat, 21 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-06-2025-UNHCR-Haiti-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "World News in Brief: UN humanitarian chief visits South Sudan, shelter fire risks in Gaza, West Bank violence",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167014",
+          "published_at": "Fri, 20 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/12-04-2022_UNICEF_South-Sudan.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "UN report exposes torture, rape in Southeast Asia’s multi-billion-dollar scam centres",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167012",
+          "published_at": "Fri, 20 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/20-02-2026-UNICEF-Cell.jpeg/image560x340cropped.jpg"
+        },
+        {
+          "title": "Science-led governance of AI can help power sustainable development: Guterres",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167011",
+          "published_at": "Fri, 20 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-02-2026-UN-India-AI-Summit-01.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "Ukraine’s women at breaking point after four years of war as attacks on energy, healthcare continue – UN humanitarians",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167007",
+          "published_at": "Fri, 20 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/UNHCR/Embargoed%202/15-03-2022_Poland-Ukraine-1.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "‘Alarming increase’ in recruitment of children into gangs in Haiti",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1166954",
+          "published_at": "Fri, 20 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/05-04-2024-UNOCHA-Haiti-05.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "UNICEF calls for release of children detained during Iran protests",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167006",
+          "published_at": "Thu, 19 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/06-07-2023-Unsplash-Tehran.jpg/image560x340cropped.jpg"
+        },
+        {
+          "title": "World News in Brief: Conflict deepens hunger crisis in South Sudan, restrictions hinder aid delivery in Gaza, UN child rights envoy concludes first visit to Syria",
+          "translated_title": "",
+          "link": "https://news.un.org/feed/view/en/story/2026/02/1167005",
+          "published_at": "Thu, 19 Feb 2026 12:00:00 +0000",
+          "image_url": "https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/19-02-2026-WFP-South-Sudan-01.jpg/image560x340cropped.jpg"
+        }
+      ],
+      "error": "",
       "from_cache": false
     },
     {
@@ -438,6 +609,13 @@
       "terms_url": "https://www.dw.com/en/legal-notice/a-2094",
       "headlines": [
         {
+          "title": "ICC opens hearing for Philippines ex-president Duterte",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/icc-opens-hearing-for-philippines-ex-president-duterte/a-76090295?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 12:10:00 GMT",
+          "image_url": ""
+        },
+        {
           "title": "Rob Jetten sworn in as youngest-ever Dutch prime minister",
           "translated_title": "",
           "link": "https://www.dw.com/en/rob-jetten-sworn-in-as-youngest-ever-dutch-prime-minister/a-76088361?maca=en-rss-en-all-1573-xml-mrss",
@@ -484,13 +662,6 @@
           "translated_title": "",
           "link": "https://www.dw.com/en/do-not-inhale-how-wildfire-smoke-affects-the-whole-body/a-76039654?maca=en-rss-en-all-1573-xml-mrss",
           "published_at": "Mon, 23 Feb 2026 06:53:00 GMT",
-          "image_url": ""
-        },
-        {
-          "title": "Israel moves towards controversial death penalty revival",
-          "translated_title": "",
-          "link": "https://www.dw.com/en/israel-moves-towards-controversial-death-penalty-revival/a-76074461?maca=en-rss-en-all-1573-xml-mrss",
-          "published_at": "Mon, 23 Feb 2026 06:02:00 GMT",
           "image_url": ""
         }
       ],

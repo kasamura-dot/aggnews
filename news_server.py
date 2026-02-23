@@ -1,5 +1,6 @@
 ﻿import json
 import os
+import gzip
 import re
 import time
 import urllib.error
@@ -36,17 +37,17 @@ SOURCES = [
         "terms_url": "https://www.bbc.com/usingthebbc/terms"
     },
     {
-        "id": "reuters_world",
-        "name": "Reuters World",
-        "site_url": "https://www.reuters.com/world/",
-        "feed_url": "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
-        "terms_url": "https://www.reuters.com/info-pages/terms-of-use/"
+        "id": "cbs_world",
+        "name": "CBS World",
+        "site_url": "https://www.cbsnews.com/world/",
+        "feed_url": "https://www.cbsnews.com/latest/rss/world",
+        "terms_url": "https://www.paramount.com/legal/us/en/cbsi/terms-of-use"
     },
     {
         "id": "cnn_world",
         "name": "CNN World",
         "site_url": "https://edition.cnn.com/world",
-        "feed_url": "https://rss.cnn.com/rss/edition_world.rss",
+        "feed_url": "http://rss.cnn.com/rss/edition_world.rss",
         "terms_url": "https://www.cnn.com/terms"
     },
     {
@@ -242,6 +243,8 @@ def fetch_feed(feed_url: str) -> str:
 
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_SEC) as resp:
         raw = resp.read()
+        if raw.startswith(b"\x1f\x8b"):
+            raw = gzip.decompress(raw)
         candidates = ["utf-8", "utf-8-sig"]
 
         header_charset = resp.headers.get_content_charset()
@@ -398,6 +401,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
 

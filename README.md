@@ -11,7 +11,7 @@
 ## 収録サイト
 - NHK
 - BBC World
-- Reuters World
+- CBS World
 - CNN World
 - NYTimes World
 - The Guardian World
@@ -57,3 +57,4 @@
 
 ## ライセンス
 MIT
+
