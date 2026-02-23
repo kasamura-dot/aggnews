@@ -1,5 +1,6 @@
-﻿const API_BASE = window.location.protocol === "file:" ? "http://127.0.0.1:8000" : "";
-const API_ENDPOINT = `${API_BASE}/api/headlines`;
+﻿const API_CANDIDATES = window.location.protocol === "file:"
+  ? ["http://127.0.0.1:8000/api/headlines"]
+  : ["/api/headlines", "http://127.0.0.1:8000/api/headlines"];
 
 const statusEl = document.getElementById("status");
 const updatedAtEl = document.getElementById("updatedAt");
@@ -117,27 +118,36 @@ function buildSourceCard(source) {
 }
 
 async function fetchHeadlines(limit) {
-  const endpoint = `${API_ENDPOINT}?limit=${encodeURIComponent(String(limit))}`;
-  const response = await fetch(endpoint, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`API error (${response.status})`);
+  const query = `?limit=${encodeURIComponent(String(limit))}`;
+  const errors = [];
+
+  for (const base of API_CANDIDATES) {
+    const endpoint = `${base}${query}`;
+    try {
+      const response = await fetch(endpoint, { cache: "no-store" });
+      if (!response.ok) {
+        errors.push(`${endpoint} -> HTTP ${response.status}`);
+        continue;
+      }
+      const payload = await response.json();
+      return { payload, endpoint };
+    } catch (error) {
+      errors.push(`${endpoint} -> ${error.message || "fetch failed"}`);
+    }
   }
-  return response.json();
+
+  throw new Error(errors.join(" | "));
 }
 
 function buildConnectionHint(error) {
   const reason = String(error?.message || "");
-  const isNetworkFail = /failed to fetch|networkerror|load failed/i.test(reason);
-
-  if (!isNetworkFail) {
-    return "サーバー起動状態とネットワークを確認してください。";
+  if (/HTTP 404/.test(reason)) {
+    return "表示中のホストにAPIがありません。`python news_server.py` を起動し、http://127.0.0.1:8000 で開いてください。";
   }
-
-  if (window.location.protocol === "file:") {
-    return "`python news_server.py` を起動し、http://127.0.0.1:8000 で開いてください。";
+  if (/failed to fetch|networkerror|load failed/i.test(reason)) {
+    return "`python news_server.py` が起動中か確認し、http://127.0.0.1:8000/api/headlines?limit=5 にアクセスしてください。";
   }
-
-  return "`python news_server.py` が起動しているか確認してください。";
+  return "サーバー起動状態とネットワークを確認してください。";
 }
 
 async function renderNews() {
@@ -149,7 +159,7 @@ async function renderNews() {
   refreshBtn.disabled = true;
 
   try {
-    const payload = await fetchHeadlines(limit);
+    const { payload, endpoint } = await fetchHeadlines(limit);
     const sources = Array.isArray(payload.sources) ? payload.sources : [];
 
     let okCount = 0;
@@ -162,7 +172,7 @@ async function renderNews() {
 
     const fetchedAt = payload.fetched_at ? new Date(payload.fetched_at) : new Date();
     statusEl.textContent = `${okCount}/${sources.length} サイトの見出しを表示中`;
-    updatedAtEl.textContent = `最終更新: ${formatDate(fetchedAt)}`;
+    updatedAtEl.textContent = `最終更新: ${formatDate(fetchedAt)} | API: ${endpoint}`;
   } catch (error) {
     statusEl.textContent = `エラー: ${error.message}`;
     updatedAtEl.textContent = buildConnectionHint(error);
