@@ -1,0 +1,568 @@
+{
+  "fetched_at": "2026-02-23T11:56:43.798853+00:00",
+  "source_count": 11,
+  "limit": 8,
+  "translation": "disabled",
+  "mode": "static-json",
+  "sources": [
+    {
+      "id": "nhk",
+      "name": "NHK",
+      "site_url": "https://www3.nhk.or.jp/news/",
+      "feed_url": "https://www3.nhk.or.jp/rss/news/cat0.xml",
+      "terms_url": "https://www.nhk.or.jp/rules/",
+      "headlines": [
+        {
+          "title": "東京スカイツリー エレベーター閉じ込め 24日も臨時休業し調査",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260222/k10015058721000.html",
+          "published_at": "Mon, 23 Feb 2026 20:55:47 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "関東で「春一番」東京 島しょ部以外で2月に夏日は観測史上初",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015058941000.html",
+          "published_at": "Mon, 23 Feb 2026 19:58:27 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "アメリカ税関当局「IEEPA」に基づく関税の徴収は24日に停止へ",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015059041000.html",
+          "published_at": "Mon, 23 Feb 2026 18:21:20 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "ネパール バスが川に転落 19人死亡 日本人1人含む20人以上けが",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015059001000.html",
+          "published_at": "Mon, 23 Feb 2026 18:15:25 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "ウクライナ軍事侵攻4年 国を出た若者たち 帰国のケース相次ぐ",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015058981000.html",
+          "published_at": "Mon, 23 Feb 2026 17:58:39 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "長野 岡谷 火事で住宅3棟全焼 2人が遺体で見つかる 70代夫婦か",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015058911000.html",
+          "published_at": "Mon, 23 Feb 2026 18:14:35 +0900",
+          "image_url": ""
+        },
+        {
+          "title": "北朝鮮 朝鮮労働党の党大会 キム総書記を全会一致で再選",
+          "translated_title": "",
+          "link": "http://www3.nhk.or.jp/news/html/20260223/k10015059021000.html",
+          "published_at": "Mon, 23 Feb 2026 18:26:24 +0900",
+          "image_url": ""
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "bbc_world",
+      "name": "BBC World",
+      "site_url": "https://www.bbc.com/news/world",
+      "feed_url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "terms_url": "https://www.bbc.com/usingthebbc/terms",
+      "headlines": [
+        {
+          "title": "Four years into its full-scale war in Ukraine, Russia is feeling the effects",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/c4gj20xzw39o?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 06:01:59 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4762/live/1529f130-107e-11f1-8ee3-49f22c5c2685.jpg"
+        },
+        {
+          "title": "Zelensky tells BBC Putin has started WW3 and must be stopped",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/cvgj9p15y87o?at_medium=RSS&at_campaign=rss",
+          "published_at": "Sun, 22 Feb 2026 22:00:47 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c62e/live/777b4930-1081-11f1-801d-ed3cff6bf876.jpg"
+        },
+        {
+          "title": "Cartel henchmen unleash violence after top drug lord killed in Mexico",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/c795qgejzpxo?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 11:27:45 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7840/live/29774360-1086-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+          "title": "Armed man killed after entering secure perimeter of Trump's residence, Secret Service says",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/cp32l9w9pgyo?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 07:16:16 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a550/live/c7902e10-1002-11f1-909d-47e99fcb7a58.jpg"
+        },
+        {
+          "title": "Briton among 19 killed in Nepal bus crash",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/c39wz97y90no?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 11:16:56 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c184/live/603c8d80-10a7-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+          "title": "Kim Jong Un re-appointed leader of North Korea's ruling party",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/cvg18588mdko?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 07:15:47 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d27d/live/16e50db0-1089-11f1-b048-c9424b2cf5fd.jpg"
+        },
+        {
+          "title": "Australian prosecutors consider reopening British girl's cold case disappearance",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/cd6zg91l75qo?at_medium=RSS&at_campaign=rss",
+          "published_at": "Mon, 23 Feb 2026 05:07:47 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9212/live/fc3e91f0-9939-11f0-869a-3fa4ad43e8ee.png"
+        },
+        {
+          "title": "Trump curious why Iran has not 'capitulated', US envoy Witkoff says",
+          "translated_title": "",
+          "link": "https://www.bbc.com/news/articles/cn5gk15rr70o?at_medium=RSS&at_campaign=rss",
+          "published_at": "Sun, 22 Feb 2026 18:18:41 GMT",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3c58/live/16a6d830-1005-11f1-909d-47e99fcb7a58.jpg"
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "reuters_world",
+      "name": "Reuters World",
+      "site_url": "https://www.reuters.com/world/",
+      "feed_url": "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
+      "terms_url": "https://www.reuters.com/info-pages/terms-of-use/",
+      "headlines": [],
+      "error": "HTTP Error 404: Not Found",
+      "from_cache": false
+    },
+    {
+      "id": "cnn_world",
+      "name": "CNN World",
+      "site_url": "https://edition.cnn.com/world",
+      "feed_url": "https://rss.cnn.com/rss/edition_world.rss",
+      "terms_url": "https://www.cnn.com/terms",
+      "headlines": [],
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>",
+      "from_cache": false
+    },
+    {
+      "id": "nytimes_world",
+      "name": "NYTimes World",
+      "site_url": "https://www.nytimes.com/section/world",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "terms_url": "https://help.nytimes.com/hc/en-us/articles/115014893428-Terms-of-service",
+      "headlines": [
+        {
+          "title": "Drug Lord ‘El Mencho’ Was Killed in Mexico. What’s Next for the Cartel He Led?",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/23/world/americas/el-mencho-killed-mexico-cartel.html",
+          "published_at": "Mon, 23 Feb 2026 10:08:36 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/23/multimedia/23-mexico-cartel-analysis-lcpz/23-mexico-cartel-analysis-lcpz-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "For Iran’s Rulers, Refusing U.S. Demands Is a Risk Worth Taking",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/23/world/middleeast/iran-us-nuclear-talks-war.html",
+          "published_at": "Mon, 23 Feb 2026 10:04:11 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/23/multimedia/23int-iran-nuclear-cqlw/23int-iran-nuclear-cqlw-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "EU Support for Ukraine Stumbles as Hungary Looks to Delay Aid",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/23/world/europe/ukraine-war-russia-eu-hungary.html",
+          "published_at": "Mon, 23 Feb 2026 11:15:45 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/23/multimedia/23EU-Ukraine-glkb/23EU-Ukraine-glkb-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "The Ukrainian Bureaucrat Working to Squeeze Russia’s War Machine",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/23/world/europe/ukraine-russia-sanctions.html",
+          "published_at": "Mon, 23 Feb 2026 10:02:36 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/23/multimedia/23int-ukraine-sanctions-profile-01-btmc/23int-ukraine-sanctions-profile-01-btmc-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "Mexican Forces Kill ‘El Mencho,’ Nation’s Most-Wanted Cartel Boss",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/22/world/americas/jalisco-new-generation-cartel-leader-killed.html",
+          "published_at": "Mon, 23 Feb 2026 10:22:41 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/22/espanol/22int-mexico-cartel-mcpt-ES-copy1/22int-mexico-cartel-mcpt-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "Tour Montparnasse Is One of Paris’s Uglier Landmarks. It’s Getting a Makeover.",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/23/world/europe/tour-montparnasse-paris-makeover-piano.html",
+          "published_at": "Mon, 23 Feb 2026 10:56:02 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/23/multimedia/23int-france-montparnasse-promo-hpzc/23int-france-montparnasse-promo-hpzc-mediumSquareAt3X.jpg"
+        },
+        {
+          "title": "The Ex-Taxi Driver at the Center of Russia’s Shadow War",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/22/world/europe/russia-sabotage-europe.html",
+          "published_at": "Sun, 22 Feb 2026 14:02:25 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/11/multimedia/00int-russia-sabotage-01-pqgz/00int-russia-sabotage-01-pqgz-mediumSquareAt3X-v2.jpg"
+        },
+        {
+          "title": "Iran Students Protest for Second Day Despite State Crackdown",
+          "translated_title": "",
+          "link": "https://www.nytimes.com/2026/02/22/world/middleeast/iran-student-protests.html",
+          "published_at": "Sun, 22 Feb 2026 22:06:03 +0000",
+          "image_url": "https://static01.nyt.com/images/2026/02/22/world/22int-iran-protests/22int-iran-protests-mediumSquareAt3X-v2.jpg"
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "guardian_world",
+      "name": "The Guardian World",
+      "site_url": "https://www.theguardian.com/world",
+      "feed_url": "https://www.theguardian.com/world/rss",
+      "terms_url": "https://www.theguardian.com/help/terms-of-service",
+      "headlines": [
+        {
+          "title": "RSF siege of El Fasher in Sudan has ‘hallmarks of genocide’, UN mission finds",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/19/rsf-siege-el-fasher-sudan-hallmarks-of-genocide-un-mission-north-darfur",
+          "published_at": "Thu, 19 Feb 2026 17:59:17 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/eaaf1f6fe6562b826cc582ee5130e339da2cb914/569_0_3312_2649/master/3312.jpg?width=140&quality=85&auto=format&fit=max&s=eed5f0f5c365f5e477d21615771da3f7"
+        },
+        {
+          "title": "More than 1,000 Kenyans lured to fight for Russia in Ukraine war, report says",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/19/kenyan-soldiers-russia-ukraine-war-intelligence-report",
+          "published_at": "Thu, 19 Feb 2026 14:39:41 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/93c7f2d9c10c974abe41b3b63f3487fdbf1b9f3a/350_0_3500_2800/master/3500.jpg?width=140&quality=85&auto=format&fit=max&s=7af6dcac61140b02e335442fd48378b2"
+        },
+        {
+          "title": "Countries that do not embrace AI could be left behind, says OpenAI’s George Osborne",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/politics/2026/feb/18/countries-do-not-embrace-ai-left-behind-george-osborne",
+          "published_at": "Wed, 18 Feb 2026 17:57:22 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/5fb605fc41a61cdeac7f4867922d02718b1d481f/158_0_2501_2001/master/2501.jpg?width=140&quality=85&auto=format&fit=max&s=a66ec953f57e7c5831eb61380a36d9d7"
+        },
+        {
+          "title": "Kenyan authorities used Israeli tech to crack activist’s phone, report claims",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/17/trim-slugs-to-kenya-authorities-israel-tech-crack-activists-phone-report",
+          "published_at": "Tue, 17 Feb 2026 11:01:02 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/3d1c12721b4367cf65c321350bc7b8668cd43289/1771_851_2423_1939/master/2423.jpg?width=140&quality=85&auto=format&fit=max&s=9e3e4cf65162574e6c63ccd29d36af7c"
+        },
+        {
+          "title": "How an undercover cop foiled an IS plot to massacre Britain’s Jews – podcast",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/news/audio/2026/feb/16/how-an-undercover-cop-foiled-an-is-plot-to-massacre-britains-jews-podcast",
+          "published_at": "Mon, 16 Feb 2026 03:00:39 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/35dccae19a1edcbe3023d1031bcc4cf1f7338b44/516_0_1349_1080/master/1349.jpg?width=140&quality=85&auto=format&fit=max&s=0f3d8462a33f166923f1d205c28367c5"
+        },
+        {
+          "title": "Who was El Mencho, the former police officer who co-founded an ultraviolent cartel in Mexico?",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/23/who-was-el-mencho-drug-cartel-boss-killed-mexico",
+          "published_at": "Mon, 23 Feb 2026 02:52:09 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/41564c068838b125819f23b7b0e320f2031ea4c3/0_3_1062_850/master/1062.jpg?width=140&quality=85&auto=format&fit=max&s=63fb808daf3154843a65f5f1481eda47"
+        },
+        {
+          "title": "Violence erupts after Mexican security forces kill drug cartel boss ‘El Mencho’",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/22/mexican-security-forces-reportedly-kill-drug-cartel-boss-el-mencho",
+          "published_at": "Mon, 23 Feb 2026 00:39:49 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/794b719cccb13286ce8fc822f3b4b60c2e3daf0e/124_0_2709_2168/master/2709.jpg?width=140&quality=85&auto=format&fit=max&s=183190461ea39703d473cba6dc932340"
+        },
+        {
+          "title": "Floreana giant tortoise reintroduced to Galápagos island after almost 200 years",
+          "translated_title": "",
+          "link": "https://www.theguardian.com/world/2026/feb/20/floreana-giant-tortoise-reintroduced-to-galapagos-island-after-almost-200-years",
+          "published_at": "Fri, 20 Feb 2026 21:00:49 GMT",
+          "image_url": "https://i.guim.co.uk/img/media/1fff3de2932319a52019d266b5d1c3e205cd5ff1/2566_442_5486_4389/master/5486.jpg?width=140&quality=85&auto=format&fit=max&s=df8ee1c50f9cc5de671c83651e3d42c9"
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "aljazeera",
+      "name": "Al Jazeera",
+      "site_url": "https://www.aljazeera.com/",
+      "feed_url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "terms_url": "https://www.aljazeera.com/terms-and-conditions",
+      "headlines": [
+        {
+          "title": "Gaza child dies after Israel blocks medical evacuation",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/video/newsfeed/2026/2/23/gaza-child-dies-after-israel-blocks-medical-evacuation?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 11:14:42 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "‘El Mencho’ killing sparks ‘overwhelming fear’ as violence erupts in Mexico",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/el-mencho-killing-sparks-overwhelming-fear-as-violence-erupts-in-mexico?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 11:10:55 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Gaza child dies waiting for Israeli permission to leave for treatment",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/gaza-child-dies-waiting-for-israeli-permission-to-leave-for-treatment?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 10:47:14 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Ramadan in Gaza: Cost of iftar doubles as genocidal war devastates economy",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/features/2026/2/23/ramadan-in-gaza-cost-of-iftar-doubles-as-genocidal-war-devastates-economy?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 10:37:21 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Russia kills four Ukrainians on eve of fourth war anniversary",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/news/2026/2/23/four-killed-in-russian-attacks-in-ukraine-ahead-of-eu-ministers-meeting?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 10:19:13 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Winter Olympics 2026 closes after setting ‘a new standard for future’",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/gallery/2026/2/23/winter-olympics-2026-closes-after-setting-a-new-standard-for-future?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 09:40:23 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Football matches postponed in Mexico after drug kingpin El Mencho killed",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/sports/2026/2/23/football-matches-postponed-in-mexico-after-drug-cartel-leader-killed?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 09:07:04 +0000",
+          "image_url": ""
+        },
+        {
+          "title": "Video: Armed man killed after breaching perimeter of Trump residence",
+          "translated_title": "",
+          "link": "https://www.aljazeera.com/video/newsfeed/2026/2/23/video-armed-man-killed-after-breaching-perimeter-of-trump-residence?traffic_source=rss",
+          "published_at": "Mon, 23 Feb 2026 08:52:07 +0000",
+          "image_url": ""
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "un_news",
+      "name": "UN News",
+      "site_url": "https://news.un.org/",
+      "feed_url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+      "terms_url": "https://www.un.org/en/about-us/terms-of-use",
+      "headlines": [],
+      "error": "not well-formed (invalid token): line 1, column 0",
+      "from_cache": false
+    },
+    {
+      "id": "npr",
+      "name": "NPR",
+      "site_url": "https://www.npr.org/",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "terms_url": "https://www.npr.org/about-npr/179876898/terms-of-use",
+      "headlines": [
+        {
+          "title": "U.S. has a quarter fewer immigration judges than it did a year ago. Here's why",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/g-s1-110911/trump-immigration-judges-dismissals-numbers",
+          "published_at": "Mon, 23 Feb 2026 05:30:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "The owners want to close this Colorado coal plant. The Trump administration says no",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/g-s1-110980/trump-coal-energy-colorado",
+          "published_at": "Mon, 23 Feb 2026 05:00:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Influencers are promoting peptides for better health. What does the science say?",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/nx-s1-5716162/peptides-science-muscle-growth-longevity-wellness",
+          "published_at": "Mon, 23 Feb 2026 05:00:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Poll: Most say the state of the union is not strong and the U.S. is worse off",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/nx-s1-5720975/poll-trump-state-of-the-union-sotu",
+          "published_at": "Mon, 23 Feb 2026 05:00:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Morning news brief",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/nx-s1-5718111/morning-news-brief",
+          "published_at": "Mon, 23 Feb 2026 04:45:37 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "U.S. boosts gold medal tally at Winter Games, led by athletes from handful of states",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/nx-s1-5720980/us-gold-medals-winter-games-vermont-alaska",
+          "published_at": "Mon, 23 Feb 2026 04:00:00 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Mexico fears more violence after army kills leader of powerful Jalisco cartel",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/23/g-s1-111138/mexico-fears-more-violence-after-army-kills-leader-of-powerful-jalisco-cartel",
+          "published_at": "Mon, 23 Feb 2026 01:32:40 -0500",
+          "image_url": ""
+        },
+        {
+          "title": "Newly discovered dinosaur species was a fish-eater with a huge horn",
+          "translated_title": "",
+          "link": "https://www.npr.org/2026/02/22/nx-s1-5722918/new-dinosaur-spinosaurus-fossil-niger-horn-sereno",
+          "published_at": "Sun, 22 Feb 2026 20:10:39 -0500",
+          "image_url": ""
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "dw",
+      "name": "DW",
+      "site_url": "https://www.dw.com/en/top-stories/s-9097",
+      "feed_url": "https://rss.dw.com/xml/rss-en-all",
+      "terms_url": "https://www.dw.com/en/legal-notice/a-2094",
+      "headlines": [
+        {
+          "title": "Rob Jetten sworn in as youngest-ever Dutch prime minister",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/rob-jetten-sworn-in-as-youngest-ever-dutch-prime-minister/a-76088361?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 11:39:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Iceland may fast-track vote on joining EU: report",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/iceland-may-fast-track-vote-on-joining-eu-report/a-76087702?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 10:59:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Germany and China: Big challenges, new opportunities",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/germany-and-china-big-challenges-new-opportunities/a-76084686?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 10:44:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Zambians pay price amid Copperbelt mining boom",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/zambians-pay-price-amid-copperbelt-mining-boom/a-76018569?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 09:48:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Germany news: CDU faces opposition over sick notes proposal",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/germany-news-cdu-faces-opposition-over-sick-notes-proposal/live-76083150?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 08:48:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Ukraine updates: Russia hits Odesa ahead of war anniversary",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/ukraine-updates-russia-hits-odesa-ahead-of-war-anniversary/live-76082184?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 08:26:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Do not inhale! How wildfire smoke 'affects the whole body'",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/do-not-inhale-how-wildfire-smoke-affects-the-whole-body/a-76039654?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 06:53:00 GMT",
+          "image_url": ""
+        },
+        {
+          "title": "Israel moves towards controversial death penalty revival",
+          "translated_title": "",
+          "link": "https://www.dw.com/en/israel-moves-towards-controversial-death-penalty-revival/a-76074461?maca=en-rss-en-all-1573-xml-mrss",
+          "published_at": "Mon, 23 Feb 2026 06:02:00 GMT",
+          "image_url": ""
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    },
+    {
+      "id": "france24",
+      "name": "France 24",
+      "site_url": "https://www.france24.com/en/",
+      "feed_url": "https://www.france24.com/en/rss",
+      "terms_url": "https://www.france24.com/en/terms-and-conditions/",
+      "headlines": [
+        {
+          "title": "French team returns from Winter Olympics with bumper medal haul",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-french-team-returns-from-winter-olympics-with-bumper-medal-haul",
+          "published_at": "Mon, 23 Feb 2026 11:42:22 GMT",
+          "image_url": "https://s.france24.com/media/display/bf0a7c70-10aa-11f1-9265-005056bf30b7/w:1024/p:16x9/EN-20260223-104140-104311-CS.jpg"
+        },
+        {
+          "title": "In Pakistan, female boxers break down gender barriers to step into the ring",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-in-pakistan-female-boxers-break-down-gender-barriers-to-step-into-the-ring",
+          "published_at": "Mon, 23 Feb 2026 11:40:51 GMT",
+          "image_url": "https://s.france24.com/media/display/030b934c-10aa-11f1-9dec-005056a90284/w:1024/p:16x9/EN-20260223-103908-104115-CS.jpg"
+        },
+        {
+          "title": "More protests in Iran as talks continue with US",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-more-protests-in-iran-as-talks-continue-with-us",
+          "published_at": "Mon, 23 Feb 2026 11:35:50 GMT",
+          "image_url": "https://s.france24.com/media/display/1b57a108-10a9-11f1-b92f-005056bf30b7/w:1024/p:16x9/EN-20260223-103602-103801-CS.jpg"
+        },
+        {
+          "title": "More than 200 political prisoners in Venezuela launch hunger strike",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-more-than-200-political-prisoners-in-venezuela-launch-hunger-strike",
+          "published_at": "Mon, 23 Feb 2026 11:30:32 GMT",
+          "image_url": "https://s.france24.com/media/display/74b4e770-10a8-11f1-847c-005056a97e36/w:1024/p:16x9/EN-20260223-103346-103540-CS.jpg"
+        },
+        {
+          "title": "'El Mencho' - a cartel boss who 'unleashed terror' on Mexico",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-el-mencho-a-cartel-boss-who-unleashed-terror-on-mexico",
+          "published_at": "Mon, 23 Feb 2026 11:28:37 GMT",
+          "image_url": "https://s.france24.com/media/display/baaebf36-10a7-11f1-9d80-005056a90284/w:1024/p:16x9/EN-20260223-103116-103239-CS.jpg"
+        },
+        {
+          "title": "'One Battle After Another' the big winner at Britain’s BAFTAs",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-one-battle-after-another-the-big-winner-at-britain-s-baftas",
+          "published_at": "Mon, 23 Feb 2026 11:11:44 GMT",
+          "image_url": "https://s.france24.com/media/display/b34a88b6-10a6-11f1-9434-005056bfb2b6/w:1024/p:16x9/EN-20260223-102511-102718-CS.jpg"
+        },
+        {
+          "title": "New York orders citywide travel ban as major blizzard hits eastern US",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/video/20260223-new-york-orders-citywide-travel-ban-as-major-blizzard-hits-eastern-us",
+          "published_at": "Mon, 23 Feb 2026 11:07:41 GMT",
+          "image_url": "https://s.france24.com/media/display/c3aee4b4-10a0-11f1-9a9a-005056bf30b7/w:1024/p:16x9/EN-20260223-102336-102454-CS.jpg"
+        },
+        {
+          "title": "Russia's 'new secret agents' wage a war of sabotage in Europe",
+          "translated_title": "",
+          "link": "https://www.france24.com/en/tv-shows/press-review/20260223-russia-s-new-secret-agents-wage-a-war-of-sabotage-in-europe",
+          "published_at": "Mon, 23 Feb 2026 11:04:07 GMT",
+          "image_url": "https://s.france24.com/media/display/466d4084-1093-11f1-9964-005056bf30b7/w:1024/p:16x9/Anglais-2026-02-23T08-21-08-952Z.jpg"
+        }
+      ],
+      "error": "",
+      "from_cache": false
+    }
+  ]
+}

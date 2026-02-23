@@ -1,6 +1,6 @@
 ﻿const API_CANDIDATES = window.location.protocol === "file:"
-  ? ["http://127.0.0.1:8000/api/headlines"]
-  : ["/api/headlines", "http://127.0.0.1:8000/api/headlines"];
+  ? ["http://127.0.0.1:8000/api/headlines", "./headlines.json"]
+  : ["api/headlines", "./headlines.json", "http://127.0.0.1:8000/api/headlines"];
 
 const statusEl = document.getElementById("status");
 const updatedAtEl = document.getElementById("updatedAt");
@@ -122,14 +122,22 @@ async function fetchHeadlines(limit) {
   const errors = [];
 
   for (const base of API_CANDIDATES) {
-    const endpoint = `${base}${query}`;
+    const endpoint = base.endsWith(".json") ? base : `${base}${query}`;
     try {
       const response = await fetch(endpoint, { cache: "no-store" });
       if (!response.ok) {
         errors.push(`${endpoint} -> HTTP ${response.status}`);
         continue;
       }
+
       const payload = await response.json();
+      if (base.endsWith(".json")) {
+        payload.sources = (payload.sources || []).map((source) => ({
+          ...source,
+          headlines: (source.headlines || []).slice(0, limit)
+        }));
+      }
+
       return { payload, endpoint };
     } catch (error) {
       errors.push(`${endpoint} -> ${error.message || "fetch failed"}`);
@@ -141,11 +149,14 @@ async function fetchHeadlines(limit) {
 
 function buildConnectionHint(error) {
   const reason = String(error?.message || "");
+  if (/headlines\.json.+HTTP 404/.test(reason)) {
+    return "GitHub Pages用の `headlines.json` が未生成です。Actions の `Update headlines.json` を実行してください。";
+  }
   if (/HTTP 404/.test(reason)) {
-    return "表示中のホストにAPIがありません。`python news_server.py` を起動し、http://127.0.0.1:8000 で開いてください。";
+    return "表示中のホストにAPIがありません。`python news_server.py` を起動して `http://127.0.0.1:8000` で開くか、`headlines.json` を用意してください。";
   }
   if (/failed to fetch|networkerror|load failed/i.test(reason)) {
-    return "`python news_server.py` が起動中か確認し、http://127.0.0.1:8000/api/headlines?limit=5 にアクセスしてください。";
+    return "`python news_server.py` が起動中か確認し、`headlines.json` の存在も確認してください。";
   }
   return "サーバー起動状態とネットワークを確認してください。";
 }
@@ -186,3 +197,4 @@ limitSelect.addEventListener("change", renderNews);
 
 renderNews();
 setInterval(renderNews, 5 * 60 * 1000);
+

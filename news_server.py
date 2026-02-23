@@ -241,8 +241,33 @@ def fetch_feed(feed_url: str) -> str:
     )
 
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_SEC) as resp:
-        charset = resp.headers.get_content_charset() or "utf-8"
-        return resp.read().decode(charset, errors="replace")
+        raw = resp.read()
+        candidates = ["utf-8", "utf-8-sig"]
+
+        header_charset = resp.headers.get_content_charset()
+        if header_charset:
+            candidates.append(header_charset)
+
+        xml_decl = re.search(rb"encoding=[\"']([A-Za-z0-9_\-]+)[\"']", raw[:200], re.IGNORECASE)
+        if xml_decl:
+            decl_charset = xml_decl.group(1).decode("ascii", errors="ignore")
+            if decl_charset:
+                candidates.append(decl_charset)
+
+        candidates.extend(["cp932", "shift_jis", "euc-jp", "iso-2022-jp", "latin-1"])
+
+        used = set()
+        for enc in candidates:
+            key = enc.lower()
+            if key in used:
+                continue
+            used.add(key)
+            try:
+                return raw.decode(enc)
+            except (LookupError, UnicodeDecodeError):
+                continue
+
+        return raw.decode("utf-8", errors="replace")
 
 
 def get_source_result(source: dict, limit: int) -> dict:
@@ -373,4 +398,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 
