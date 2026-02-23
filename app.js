@@ -1,0 +1,178 @@
+﻿const API_BASE = window.location.protocol === "file:" ? "http://127.0.0.1:8000" : "";
+const API_ENDPOINT = `${API_BASE}/api/headlines`;
+
+const statusEl = document.getElementById("status");
+const updatedAtEl = document.getElementById("updatedAt");
+const newsGridEl = document.getElementById("newsGrid");
+const refreshBtn = document.getElementById("refreshBtn");
+const limitSelect = document.getElementById("limitSelect");
+const cardTemplate = document.getElementById("sourceCardTemplate");
+
+function formatDate(date) {
+  try {
+    return new Intl.DateTimeFormat("ja-JP", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    }).format(date);
+  } catch {
+    return date.toLocaleString("ja-JP");
+  }
+}
+
+function buildSourceCard(source) {
+  const fragment = cardTemplate.content.cloneNode(true);
+  const nameEl = fragment.querySelector(".source-name");
+  const linkEl = fragment.querySelector(".source-link");
+  const listEl = fragment.querySelector(".headline-list");
+
+  nameEl.textContent = source.name;
+  linkEl.href = source.site_url;
+
+  const meta = document.createElement("p");
+  meta.className = "source-meta";
+  if (source.terms_url) {
+    const terms = document.createElement("a");
+    terms.href = source.terms_url;
+    terms.target = "_blank";
+    terms.rel = "noopener noreferrer";
+    terms.textContent = "利用規約";
+    meta.append("出典: 公式RSS | ");
+    meta.appendChild(terms);
+  } else {
+    meta.textContent = "出典: 公式RSS";
+  }
+
+  listEl.parentElement.insertBefore(meta, listEl);
+
+  if (source.error) {
+    const li = document.createElement("li");
+    li.className = "error";
+    li.textContent = `取得エラー: ${source.error}`;
+    listEl.appendChild(li);
+    return fragment;
+  }
+
+  const headlines = Array.isArray(source.headlines) ? source.headlines : [];
+  if (headlines.length === 0) {
+    const li = document.createElement("li");
+    li.className = "error";
+    li.textContent = "見出しがありません。";
+    listEl.appendChild(li);
+    return fragment;
+  }
+
+  for (const item of headlines) {
+    const li = document.createElement("li");
+    li.className = "headline-item";
+
+    if (item.image_url) {
+      const img = document.createElement("img");
+      img.className = "headline-thumb";
+      img.src = item.image_url;
+      img.alt = "";
+      img.loading = "lazy";
+      img.referrerPolicy = "no-referrer";
+      img.addEventListener("error", () => {
+        img.style.display = "none";
+      });
+      li.appendChild(img);
+    }
+
+    const body = document.createElement("div");
+    body.className = "headline-body";
+
+    const titleLink = document.createElement("a");
+    titleLink.href = item.link || source.site_url;
+    titleLink.target = "_blank";
+    titleLink.rel = "noopener noreferrer";
+    titleLink.textContent = item.translated_title || item.title || "(no title)";
+    body.appendChild(titleLink);
+
+    if (item.translated_title && item.title) {
+      const originalEl = document.createElement("p");
+      originalEl.className = "original-title";
+      originalEl.textContent = item.title;
+      body.appendChild(originalEl);
+    }
+
+    if (item.published_at) {
+      const timeEl = document.createElement("time");
+      const date = new Date(item.published_at);
+      if (!Number.isNaN(date.getTime())) {
+        timeEl.dateTime = date.toISOString();
+        timeEl.textContent = formatDate(date);
+        body.appendChild(timeEl);
+      }
+    }
+
+    li.appendChild(body);
+    listEl.appendChild(li);
+  }
+
+  return fragment;
+}
+
+async function fetchHeadlines(limit) {
+  const endpoint = `${API_ENDPOINT}?limit=${encodeURIComponent(String(limit))}`;
+  const response = await fetch(endpoint, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`API error (${response.status})`);
+  }
+  return response.json();
+}
+
+function buildConnectionHint(error) {
+  const reason = String(error?.message || "");
+  const isNetworkFail = /failed to fetch|networkerror|load failed/i.test(reason);
+
+  if (!isNetworkFail) {
+    return "サーバー起動状態とネットワークを確認してください。";
+  }
+
+  if (window.location.protocol === "file:") {
+    return "`python news_server.py` を起動し、http://127.0.0.1:8000 で開いてください。";
+  }
+
+  return "`python news_server.py` が起動しているか確認してください。";
+}
+
+async function renderNews() {
+  const limit = Number.parseInt(limitSelect.value, 10) || 8;
+
+  statusEl.textContent = "見出しを取得中...";
+  updatedAtEl.textContent = "";
+  newsGridEl.textContent = "";
+  refreshBtn.disabled = true;
+
+  try {
+    const payload = await fetchHeadlines(limit);
+    const sources = Array.isArray(payload.sources) ? payload.sources : [];
+
+    let okCount = 0;
+    for (const source of sources) {
+      if (!source.error) {
+        okCount += 1;
+      }
+      newsGridEl.appendChild(buildSourceCard(source));
+    }
+
+    const fetchedAt = payload.fetched_at ? new Date(payload.fetched_at) : new Date();
+    statusEl.textContent = `${okCount}/${sources.length} サイトの見出しを表示中`;
+    updatedAtEl.textContent = `最終更新: ${formatDate(fetchedAt)}`;
+  } catch (error) {
+    statusEl.textContent = `エラー: ${error.message}`;
+    updatedAtEl.textContent = buildConnectionHint(error);
+  } finally {
+    refreshBtn.disabled = false;
+  }
+}
+
+refreshBtn.addEventListener("click", renderNews);
+limitSelect.addEventListener("change", renderNews);
+
+renderNews();
+setInterval(renderNews, 5 * 60 * 1000);

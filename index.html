@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AggNews | Headlines</title>
+    <meta name="description" content="主なニュースサイトの見出しとリンクをまとめて表示するWebアプリ" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>AggNews</h1>
+          <p class="sub">主要ニュースサイトの最新見出し（公式RSSのみ）</p>
+        </div>
+        <div class="controls">
+          <label>
+            表示件数 / サイト
+            <select id="limitSelect">
+              <option value="5">5</option>
+              <option value="8" selected>8</option>
+              <option value="12">12</option>
+            </select>
+          </label>
+          <button id="refreshBtn" type="button">更新</button>
+        </div>
+      </header>
+
+      <section class="meta">
+        <p id="status">読み込み中...</p>
+        <p id="updatedAt"></p>
+      </section>
+
+      <section id="newsGrid" class="news-grid" aria-live="polite"></section>
+    </main>
+
+    <template id="sourceCardTemplate">
+      <article class="source-card">
+        <header class="source-head">
+          <h2 class="source-name"></h2>
+          <a class="source-link" target="_blank" rel="noopener noreferrer">サイト</a>
+        </header>
+        <ul class="headline-list"></ul>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
