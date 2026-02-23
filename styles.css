@@ -20,130 +20,96 @@ body {
 }
 
 .app {
-  max-width: 1120px;
+  max-width: 1480px;
   margin: 0 auto;
-  padding: 24px 16px 32px;
+  padding: 8px 10px 12px;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
 h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 22px;
   letter-spacing: 0.02em;
 }
 
 .sub {
-  margin: 6px 0 0;
+  margin: 2px 0 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .controls {
   display: flex;
-  align-items: end;
-  gap: 12px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: var(--muted);
+button {
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 5px 10px;
+  cursor: pointer;
   font-size: 12px;
 }
 
-select,
-button {
-  font: inherit;
-}
-
-select {
-  min-width: 120px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 8px 10px;
-}
-
-button {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--surface);
-  color: var(--text);
-  padding: 8px 14px;
-  cursor: pointer;
-}
-
-button:hover,
-select:hover {
+button:hover {
   border-color: var(--accent);
 }
 
 .meta {
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 .meta p {
-  margin: 4px 0;
+  margin: 1px 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .news-grid {
-  margin-top: 16px;
+  margin-top: 8px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
 }
 
 .source-card {
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 9px;
   background: var(--surface);
-  padding: 14px;
+  padding: 6px;
+  min-height: 92px;
 }
 
 .source-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 4px;
 }
 
 .source-name {
   margin: 0;
-  font-size: 18px;
+  font-size: 13px;
+  line-height: 1.2;
 }
 
 .source-link {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--accent);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .source-link:hover {
-  text-decoration: underline;
-}
-
-.source-meta {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.source-meta a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.source-meta a:hover {
   text-decoration: underline;
 }
 
@@ -151,23 +117,20 @@ select:hover {
   margin: 0;
   padding-left: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .headline-item {
   display: flex;
-  gap: 10px;
+  gap: 6px;
   align-items: flex-start;
 }
 
 .headline-thumb {
-  width: 64px;
-  height: 64px;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
   object-fit: cover;
-  flex: 0 0 64px;
+  flex: 0 0 34px;
   background: var(--surface-2);
   border: 1px solid var(--line);
 }
@@ -180,7 +143,12 @@ select:hover {
 .headline-body a {
   color: var(--text);
   text-decoration: none;
-  line-height: 1.3;
+  line-height: 1.2;
+  font-size: 11px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .headline-body a:hover {
@@ -188,40 +156,23 @@ select:hover {
   text-decoration: underline;
 }
 
-.original-title {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-.headline-body time {
-  display: block;
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .error {
   color: #b4232f;
-  font-size: 13px;
+  font-size: 11px;
 }
 
-@media (max-width: 760px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 1280px) {
+  .news-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .controls {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .headline-thumb {
-    width: 56px;
-    height: 56px;
-    flex-basis: 56px;
+  .source-card {
+    min-height: 86px;
   }
 }

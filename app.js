@@ -2,11 +2,13 @@
   ? ["http://127.0.0.1:8000/api/headlines", "./headlines.json"]
   : ["api/headlines", "./headlines.json", "http://127.0.0.1:8000/api/headlines"];
 
+const FIXED_SITE_COUNT = 11;
+const FIXED_HEADLINES_PER_SITE = 1;
+
 const statusEl = document.getElementById("status");
 const updatedAtEl = document.getElementById("updatedAt");
 const newsGridEl = document.getElementById("newsGrid");
 const refreshBtn = document.getElementById("refreshBtn");
-const limitSelect = document.getElementById("limitSelect");
 const cardTemplate = document.getElementById("sourceCardTemplate");
 
 function formatDate(date) {
@@ -33,40 +35,26 @@ function buildSourceCard(source) {
   nameEl.textContent = source.name;
   linkEl.href = source.site_url;
 
-  const meta = document.createElement("p");
-  meta.className = "source-meta";
-  if (source.terms_url) {
-    const terms = document.createElement("a");
-    terms.href = source.terms_url;
-    terms.target = "_blank";
-    terms.rel = "noopener noreferrer";
-    terms.textContent = "利用規約";
-    meta.append("出典: 公式RSS | ");
-    meta.appendChild(terms);
-  } else {
-    meta.textContent = "出典: 公式RSS";
-  }
-
-  listEl.parentElement.insertBefore(meta, listEl);
-
   if (source.error) {
     const li = document.createElement("li");
     li.className = "error";
-    li.textContent = `取得エラー: ${source.error}`;
+    li.textContent = "取得エラー";
     listEl.appendChild(li);
     return fragment;
   }
 
   const headlines = Array.isArray(source.headlines) ? source.headlines : [];
-  if (headlines.length === 0) {
+  const shown = headlines.slice(0, FIXED_HEADLINES_PER_SITE);
+
+  if (shown.length === 0) {
     const li = document.createElement("li");
     li.className = "error";
-    li.textContent = "見出しがありません。";
+    li.textContent = "見出しなし";
     listEl.appendChild(li);
     return fragment;
   }
 
-  for (const item of headlines) {
+  for (const item of shown) {
     const li = document.createElement("li");
     li.className = "headline-item";
 
@@ -93,23 +81,6 @@ function buildSourceCard(source) {
     titleLink.textContent = item.translated_title || item.title || "(no title)";
     body.appendChild(titleLink);
 
-    if (item.translated_title && item.title) {
-      const originalEl = document.createElement("p");
-      originalEl.className = "original-title";
-      originalEl.textContent = item.title;
-      body.appendChild(originalEl);
-    }
-
-    if (item.published_at) {
-      const timeEl = document.createElement("time");
-      const date = new Date(item.published_at);
-      if (!Number.isNaN(date.getTime())) {
-        timeEl.dateTime = date.toISOString();
-        timeEl.textContent = formatDate(date);
-        body.appendChild(timeEl);
-      }
-    }
-
     li.appendChild(body);
     listEl.appendChild(li);
   }
@@ -117,8 +88,8 @@ function buildSourceCard(source) {
   return fragment;
 }
 
-async function fetchHeadlines(limit) {
-  const query = `?limit=${encodeURIComponent(String(limit))}`;
+async function fetchHeadlines() {
+  const query = `?limit=${FIXED_HEADLINES_PER_SITE}`;
   const errors = [];
 
   for (const base of API_CANDIDATES) {
@@ -131,12 +102,10 @@ async function fetchHeadlines(limit) {
       }
 
       const payload = await response.json();
-      if (base.endsWith(".json")) {
-        payload.sources = (payload.sources || []).map((source) => ({
-          ...source,
-          headlines: (source.headlines || []).slice(0, limit)
-        }));
-      }
+      payload.sources = (payload.sources || []).slice(0, FIXED_SITE_COUNT).map((source) => ({
+        ...source,
+        headlines: (source.headlines || []).slice(0, FIXED_HEADLINES_PER_SITE)
+      }));
 
       return { payload, endpoint };
     } catch (error) {
@@ -150,27 +119,25 @@ async function fetchHeadlines(limit) {
 function buildConnectionHint(error) {
   const reason = String(error?.message || "");
   if (/headlines\.json.+HTTP 404/.test(reason)) {
-    return "GitHub Pages用の `headlines.json` が未生成です。Actions の `Update headlines.json` を実行してください。";
+    return "`headlines.json` が未生成です。Actions の `Update headlines.json` を実行してください。";
   }
   if (/HTTP 404/.test(reason)) {
-    return "表示中のホストにAPIがありません。`python news_server.py` を起動して `http://127.0.0.1:8000` で開くか、`headlines.json` を用意してください。";
+    return "APIまたはheadlines.jsonが見つかりません。";
   }
   if (/failed to fetch|networkerror|load failed/i.test(reason)) {
-    return "`python news_server.py` が起動中か確認し、`headlines.json` の存在も確認してください。";
+    return "ネットワークまたはサーバー起動状態を確認してください。";
   }
   return "サーバー起動状態とネットワークを確認してください。";
 }
 
 async function renderNews() {
-  const limit = Number.parseInt(limitSelect.value, 10) || 8;
-
   statusEl.textContent = "見出しを取得中...";
   updatedAtEl.textContent = "";
   newsGridEl.textContent = "";
   refreshBtn.disabled = true;
 
   try {
-    const { payload, endpoint } = await fetchHeadlines(limit);
+    const { payload, endpoint } = await fetchHeadlines();
     const sources = Array.isArray(payload.sources) ? payload.sources : [];
 
     let okCount = 0;
@@ -182,8 +149,8 @@ async function renderNews() {
     }
 
     const fetchedAt = payload.fetched_at ? new Date(payload.fetched_at) : new Date();
-    statusEl.textContent = `${okCount}/${sources.length} サイトの見出しを表示中`;
-    updatedAtEl.textContent = `最終更新: ${formatDate(fetchedAt)} | API: ${endpoint}`;
+    statusEl.textContent = `${okCount}/${FIXED_SITE_COUNT} サイト表示`;
+    updatedAtEl.textContent = `最終更新: ${formatDate(fetchedAt)} | ${endpoint}`;
   } catch (error) {
     statusEl.textContent = `エラー: ${error.message}`;
     updatedAtEl.textContent = buildConnectionHint(error);
@@ -193,8 +160,6 @@ async function renderNews() {
 }
 
 refreshBtn.addEventListener("click", renderNews);
-limitSelect.addEventListener("change", renderNews);
 
 renderNews();
 setInterval(renderNews, 5 * 60 * 1000);
-
