@@ -25,8 +25,8 @@
 - `index.html`: 画面レイアウト
 - `styles.css`: スタイル
 - `app.js`: フロント描画ロジック（API + JSONフォールバック）
-- `news_server.py`: ローカルAPIサーバー
-- `scripts/build_headlines.py`: 静的 `headlines.json` 生成（DeepL翻訳対応）
+- `news_server.py`: ローカルAPIサーバー（Google翻訳優先、DeepLフォールバック）
+- `scripts/build_headlines.py`: 静的 `headlines.json` 生成（Google翻訳優先、DeepLフォールバック）
 - `.github/workflows/update-headlines.yml`: 定期更新ジョブ
 
 ## 動作モード
@@ -35,7 +35,7 @@
 
 ## GitHub Pages での必須設定
 1. このリポジトリに push
-2. `Settings > Secrets and variables > Actions` で `DEEPL_API_KEY` を作成（任意、和訳する場合）
+2. `Settings > Secrets and variables > Actions` で `GOOGLE_TRANSLATE_API_KEY` を作成（和訳する場合）
 3. Actions タブで `Update headlines.json` を `Run workflow`
 4. リポジトリ直下に `headlines.json` が更新コミットされることを確認
 5. GitHub Pages を有効化して公開
@@ -50,8 +50,9 @@
 
 ## 和訳について
 - 英語見出しの和訳は `translated_title` で表示します。
-- ローカル実行: `DEEPL_API_KEY` を環境変数で設定すると有効化されます。
-- GitHub Pages: リポジトリシークレット `DEEPL_API_KEY` を設定すると、Actions生成の `headlines.json` に和訳が入ります。
+- 翻訳API優先順: Google Cloud Translation API -> DeepL API
+- ローカル実行: 環境変数 `GOOGLE_TRANSLATE_API_KEY` を設定すると有効化されます。
+- GitHub Pages: リポジトリシークレット `GOOGLE_TRANSLATE_API_KEY` を設定すると、Actions生成の `headlines.json` に和訳が入ります。
 
 ## 注意
 - 本実装は法的助言ではありません。運用前に各媒体の最新利用規約・配信条件を必ず確認してください。

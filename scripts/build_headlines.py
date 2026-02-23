@@ -1,4 +1,5 @@
 ﻿import gzip
+import html
 import json
 import os
 import re
@@ -12,8 +13,14 @@ from pathlib import Path
 OUTPUT_PATH = Path(__file__).resolve().parents[1] / "headlines.json"
 TIMEOUT = 12
 
+GOOGLE_TRANSLATE_API_KEY = os.getenv("GOOGLE_TRANSLATE_API_KEY", "").strip()
+GOOGLE_TRANSLATE_API_URL = os.getenv(
+    "GOOGLE_TRANSLATE_API_URL", "https://translation.googleapis.com/language/translate/v2"
+).strip()
+
 DEEPL_API_KEY = os.getenv("DEEPL_API_KEY", "").strip()
 DEEPL_API_URL = os.getenv("DEEPL_API_URL", "https://api-free.deepl.com/v2/translate").strip()
+
 TRANSLATION_CACHE = {}
 JP_RE = re.compile(r"[ぁ-んァ-ヶ一-龠]")
 EN_RE = re.compile(r"[A-Za-z]")
@@ -198,13 +205,30 @@ def seems_english(text: str) -> bool:
     return len(EN_RE.findall(text)) >= 6
 
 
-def translate_title(text: str) -> str:
-    if not DEEPL_API_KEY or not seems_english(text):
+def translate_with_google(text: str) -> str:
+    if not GOOGLE_TRANSLATE_API_KEY:
         return ""
 
-    cached = TRANSLATION_CACHE.get(text)
-    if cached is not None:
-        return cached
+    endpoint = f"{GOOGLE_TRANSLATE_API_URL}?key={urllib.parse.quote_plus(GOOGLE_TRANSLATE_API_KEY)}"
+    payload = urllib.parse.urlencode({"q": text, "target": "ja", "format": "text"}).encode("utf-8")
+
+    req = urllib.request.Request(
+        endpoint,
+        data=payload,
+        method="POST",
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(body)
+        translated = ((data.get("data") or {}).get("translations") or [{}])[0].get("translatedText", "").strip()
+        return html.unescape(translated)
+
+
+def translate_with_deepl(text: str) -> str:
+    if not DEEPL_API_KEY:
+        return ""
 
     payload = urllib.parse.urlencode(
         {
@@ -221,15 +245,37 @@ def translate_title(text: str) -> str:
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
 
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(body)
+        return (data.get("translations") or [{}])[0].get("text", "").strip()
+
+
+def translate_title(text: str) -> str:
+    if not seems_english(text):
+        return ""
+
+    cached = TRANSLATION_CACHE.get(text)
+    if cached is not None:
+        return cached
+
     try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            body = resp.read().decode("utf-8", errors="replace")
-            data = json.loads(body)
-            translated = (data.get("translations") or [{}])[0].get("text", "").strip()
+        translated = translate_with_google(text)
+        if translated:
             TRANSLATION_CACHE[text] = translated
             return translated
     except Exception:
-        return ""
+        pass
+
+    try:
+        translated = translate_with_deepl(text)
+        if translated:
+            TRANSLATION_CACHE[text] = translated
+            return translated
+    except Exception:
+        pass
+
+    return ""
 
 
 def parse_headlines(xml_text: str, limit: int):
@@ -276,11 +322,17 @@ def build_payload(limit: int = 8) -> dict:
             row["error"] = f"unexpected: {exc}"
         sources.append(row)
 
+    translator = "disabled"
+    if GOOGLE_TRANSLATE_API_KEY:
+        translator = "google"
+    elif DEEPL_API_KEY:
+        translator = "deepl"
+
     return {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source_count": len(sources),
         "limit": limit,
-        "translation": "deepl" if DEEPL_API_KEY else "disabled",
+        "translation": translator,
         "mode": "static-json",
         "sources": sources
     }
