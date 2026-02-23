@@ -26,7 +26,7 @@
 - `styles.css`: スタイル
 - `app.js`: フロント描画ロジック（API + JSONフォールバック）
 - `news_server.py`: ローカルAPIサーバー
-- `scripts/build_headlines.py`: 静的 `headlines.json` 生成
+- `scripts/build_headlines.py`: 静的 `headlines.json` 生成（DeepL翻訳対応）
 - `.github/workflows/update-headlines.yml`: 定期更新ジョブ
 
 ## 動作モード
@@ -35,9 +35,10 @@
 
 ## GitHub Pages での必須設定
 1. このリポジトリに push
-2. Actions タブで `Update headlines.json` を `Run workflow`
-3. リポジトリ直下に `headlines.json` が更新コミットされることを確認
-4. GitHub Pages を有効化して公開
+2. `Settings > Secrets and variables > Actions` で `DEEPL_API_KEY` を作成（任意、和訳する場合）
+3. Actions タブで `Update headlines.json` を `Run workflow`
+4. リポジトリ直下に `headlines.json` が更新コミットされることを確認
+5. GitHub Pages を有効化して公開
 
 ## エラー対処
 - `API error (404)`:
@@ -48,8 +49,9 @@
   - ローカルは `python news_server.py` 起動状態を確認
 
 ## 和訳について
-- 規約順守のため翻訳はデフォルト無効です。
-- DeepL公式APIを使う場合のみ `news_server.py` 側で有効化できます。
+- 英語見出しの和訳は `translated_title` で表示します。
+- ローカル実行: `DEEPL_API_KEY` を環境変数で設定すると有効化されます。
+- GitHub Pages: リポジトリシークレット `DEEPL_API_KEY` を設定すると、Actions生成の `headlines.json` に和訳が入ります。
 
 ## 注意
 - 本実装は法的助言ではありません。運用前に各媒体の最新利用規約・配信条件を必ず確認してください。
@@ -57,4 +59,3 @@
 
 ## ライセンス
 MIT
-

@@ -1,7 +1,9 @@
-﻿import json
-import gzip
+﻿import gzip
+import json
+import os
 import re
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -9,6 +11,12 @@ from pathlib import Path
 
 OUTPUT_PATH = Path(__file__).resolve().parents[1] / "headlines.json"
 TIMEOUT = 12
+
+DEEPL_API_KEY = os.getenv("DEEPL_API_KEY", "").strip()
+DEEPL_API_URL = os.getenv("DEEPL_API_URL", "https://api-free.deepl.com/v2/translate").strip()
+TRANSLATION_CACHE = {}
+JP_RE = re.compile(r"[ぁ-んァ-ヶ一-龠]")
+EN_RE = re.compile(r"[A-Za-z]")
 
 SOURCES = [
     {
@@ -154,8 +162,8 @@ def fetch_feed(feed_url: str) -> str:
         raw = resp.read()
         if raw.startswith(b"\x1f\x8b"):
             raw = gzip.decompress(raw)
-        candidates = ["utf-8", "utf-8-sig"]
 
+        candidates = ["utf-8", "utf-8-sig"]
         header_charset = resp.headers.get_content_charset()
         if header_charset:
             candidates.append(header_charset)
@@ -182,6 +190,48 @@ def fetch_feed(feed_url: str) -> str:
         return raw.decode("utf-8", errors="replace")
 
 
+def seems_english(text: str) -> bool:
+    if not text:
+        return False
+    if JP_RE.search(text):
+        return False
+    return len(EN_RE.findall(text)) >= 6
+
+
+def translate_title(text: str) -> str:
+    if not DEEPL_API_KEY or not seems_english(text):
+        return ""
+
+    cached = TRANSLATION_CACHE.get(text)
+    if cached is not None:
+        return cached
+
+    payload = urllib.parse.urlencode(
+        {
+            "auth_key": DEEPL_API_KEY,
+            "text": text,
+            "target_lang": "JA"
+        }
+    ).encode("utf-8")
+
+    req = urllib.request.Request(
+        DEEPL_API_URL,
+        data=payload,
+        method="POST",
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
+            data = json.loads(body)
+            translated = (data.get("translations") or [{}])[0].get("text", "").strip()
+            TRANSLATION_CACHE[text] = translated
+            return translated
+    except Exception:
+        return ""
+
+
 def parse_headlines(xml_text: str, limit: int):
     root = ET.fromstring(xml_text)
     items = [elem for elem in root.iter() if localname(elem.tag) == "item"]
@@ -190,10 +240,11 @@ def parse_headlines(xml_text: str, limit: int):
 
     results = []
     for node in items[:limit]:
+        title = text_of(node, {"title"}) or "(no title)"
         results.append(
             {
-                "title": text_of(node, {"title"}) or "(no title)",
-                "translated_title": "",
+                "title": title,
+                "translated_title": translate_title(title),
                 "link": pick_link(node),
                 "published_at": text_of(node, {"pubDate", "published", "updated"}),
                 "image_url": pick_image(node)
@@ -229,7 +280,7 @@ def build_payload(limit: int = 8) -> dict:
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "source_count": len(sources),
         "limit": limit,
-        "translation": "disabled",
+        "translation": "deepl" if DEEPL_API_KEY else "disabled",
         "mode": "static-json",
         "sources": sources
     }
@@ -244,8 +295,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
